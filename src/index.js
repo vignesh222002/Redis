@@ -2,6 +2,7 @@ import express from "express";
 import axios from "axios";
 import cors from "cors";
 import { createClient } from "redis";
+
 const redisClient = createClient();
 
 const DEFAULT_EXPIRATION = 10
