@@ -1,19 +1,13 @@
 import express from "express";
 import axios from "axios";
 import cors from "cors";
-import { createClient } from "redis";
-
-const redisClient = createClient();
+import redisClient from "./redisConfig";
 
 const DEFAULT_EXPIRATION = 10
 
 const app = express();
 app.use(express.json())
 app.use(cors())
-
-redisClient.on('error', err => console.log('Redis Client Error', err));
-
-await redisClient.connect();
 
 app.get("/photos", async (request, response) => {
     // REDIS Implementation
